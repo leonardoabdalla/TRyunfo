@@ -19,7 +19,7 @@ class Form extends React.Component {
     } = this.props;
     return (
       <div>
-        <h2>Adicionar nova carta</h2>
+        <h1>Adicionar nova carta</h1>
         <form>
 
           <label htmlFor="name-input">
