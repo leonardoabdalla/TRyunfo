@@ -23,7 +23,6 @@ class Form extends React.Component {
         <form>
 
           <label htmlFor="name-input">
-            Nome:
             <input
               data-testid="name-input"
               type="text"
@@ -33,7 +32,6 @@ class Form extends React.Component {
             />
           </label>
           <label htmlFor="description-input">
-            Descrição:
             <input
               data-testid="description-input"
               type="textArea"
@@ -43,7 +41,6 @@ class Form extends React.Component {
             />
           </label>
           <label htmlFor="attr1-input">
-            Primeiro atributo:
             <input
               data-testid="attr1-input"
               type="number"
@@ -53,7 +50,6 @@ class Form extends React.Component {
             />
           </label>
           <label htmlFor="attr2-input">
-            Segundo atributo:
             <input
               data-testid="attr2-input"
               type="number"
@@ -63,7 +59,6 @@ class Form extends React.Component {
             />
           </label>
           <label htmlFor="attr3-input">
-            Terceiro atributo:
             <input
               data-testid="attr3-input"
               type="number"
@@ -73,7 +68,6 @@ class Form extends React.Component {
             />
           </label>
           <label htmlFor="image-input">
-            Imagem:
             <input
               data-testid="image-input"
               type="text"
@@ -95,7 +89,6 @@ class Form extends React.Component {
             </select>
           </label>
           <label htmlFor="trunfo-input">
-            Super Trunfo:
             <input
               data-testid="trunfo-input"
               type="checkbox"
