@@ -48,8 +48,8 @@ class Form extends React.Component {
               data-testid="attr1-input"
               type="number"
               name="cardAttr1"
-              onChange={ onInputChange }
               value={ cardAttr1 }
+              onChange={ onInputChange }
             />
           </label>
           <label htmlFor="attr2-input" className="forms">
