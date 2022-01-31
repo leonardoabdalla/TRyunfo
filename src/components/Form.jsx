@@ -33,7 +33,7 @@ class Form extends React.Component {
           <label htmlFor="description-input">
             Descrição:
             <input
-              type="text"
+              type="textArea"
               value={ cardDescription }
               onChange={ onInputChange }
               data-testid="description-input"
@@ -109,8 +109,6 @@ class Form extends React.Component {
   }
 }
 
-export default Form;
-
 Form.propTypes = {
   cardName: PropTypes.string.isRequired,
   cardDescription: PropTypes.string.isRequired,
@@ -125,6 +123,8 @@ Form.propTypes = {
   onInputChange: PropTypes.func.isRequired,
   onSaveButtonClick: PropTypes.func.isRequired,
 };
+
+export default Form;
 
 // ref: https://pt-br.reactjs.org/docs/forms.html
 // ref: https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/select
