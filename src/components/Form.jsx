@@ -30,6 +30,7 @@ class Form extends React.Component {
               name="cardName"
               value={ cardName }
               onChange={ onInputChange }
+              required
             />
           </label>
           <label htmlFor="description-input" className="forms">
@@ -40,6 +41,7 @@ class Form extends React.Component {
               name="cardDescription"
               value={ cardDescription }
               onChange={ onInputChange }
+              required
             />
           </label>
           <label htmlFor="attr1-input" className="forms">
@@ -80,6 +82,7 @@ class Form extends React.Component {
               name="cardImage"
               value={ cardImage }
               onChange={ onInputChange }
+              required
             />
           </label>
           <label htmlFor="rare-input" className="forms">
@@ -89,6 +92,7 @@ class Form extends React.Component {
               name="cardRare"
               value={ cardRare }
               onChange={ onInputChange }
+              required
             >
               <option value="normal">normal</option>
               <option value="raro">raro</option>

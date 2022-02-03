@@ -17,7 +17,7 @@ class App extends React.Component {
         cardRare: '',
         cardTrunfo: false,
         // hasTrunfo,
-        isSaveButtonDisabled: false,
+        isSaveButtonDisabled: true,
       },
       cartas: [],
     };
@@ -43,11 +43,17 @@ class App extends React.Component {
   }
 
   render() {
+    const { carta } = this.state;
+
     return (
       <div>
         <h1 id="titulo">Tryunfo</h1>
-        <Form { ...this.carta } onInputChange={ this.handleChange } />
-        <Card { ...this.carta } />
+        <Form
+          { ...carta }
+          onInputChange={ this.handleChange }
+          onSave={ this.handleSave }
+        />
+        <Card { ...carta } />
       </div>
     );
   }
