@@ -19,11 +19,11 @@ class Form extends React.Component {
     } = this.props;
     return (
       <div id="form">
-        <h1>Adicionar nova carta</h1>
+        <h2 id="subTitulo">Adicionar nova carta</h2>
         <form>
 
           <label htmlFor="name-input" className="forms">
-            Nome:
+            Nome....................
             <input
               data-testid="name-input"
               type="text"
@@ -33,7 +33,7 @@ class Form extends React.Component {
             />
           </label>
           <label htmlFor="description-input" className="forms">
-            Descrição:
+            Descrição.............
             <input
               data-testid="description-input"
               type="textArea"
@@ -43,7 +43,7 @@ class Form extends React.Component {
             />
           </label>
           <label htmlFor="attr1-input" className="forms">
-            Attr1:
+            Attr1.....................
             <input
               data-testid="attr1-input"
               type="number"
@@ -53,7 +53,7 @@ class Form extends React.Component {
             />
           </label>
           <label htmlFor="attr2-input" className="forms">
-            Attr2:
+            Attr2.....................
             <input
               data-testid="attr2-input"
               type="number"
@@ -63,7 +63,7 @@ class Form extends React.Component {
             />
           </label>
           <label htmlFor="attr3-input" className="forms">
-            Attr3:
+            Attr3.....................
             <input
               data-testid="attr3-input"
               type="number"
@@ -73,7 +73,7 @@ class Form extends React.Component {
             />
           </label>
           <label htmlFor="image-input" className="forms">
-            Imagem:
+            Imagem................
             <input
               data-testid="image-input"
               type="text"
@@ -83,7 +83,7 @@ class Form extends React.Component {
             />
           </label>
           <label htmlFor="rare-input" className="forms">
-            Raridade:
+            Raridade..............
             <select
               data-testid="rare-input"
               name="cardRare"
@@ -96,6 +96,7 @@ class Form extends React.Component {
             </select>
           </label>
           <label htmlFor="trunfo-input" className="forms">
+            Trunfo..................
             <input
               data-testid="trunfo-input"
               type="checkbox"
@@ -105,6 +106,7 @@ class Form extends React.Component {
             />
           </label>
           <button
+            id="button"
             data-testid="save-button"
             type="submit"
             disabled={ isSaveButtonDisabled }
