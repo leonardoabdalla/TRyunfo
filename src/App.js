@@ -37,15 +37,17 @@ class App extends React.Component {
   }
 
   handleSave() {
-    this.state({ pessoas: [...this.state.cartas, this.state.carta] });
+    const { cartas } = this.state;
+    const { carta } = this.state;
+    this.state({ pessoas: [...carta, cartas] });
   }
 
   render() {
     return (
       <div>
         <h1 id="titulo">Tryunfo</h1>
-        <Form { ...this.state.carta } onInputChange={ this.handleChange } />
-        <Card { ...this.state.carta } />
+        <Form { ...this.carta } onInputChange={ this.handleChange } />
+        <Card { ...this.carta } />
       </div>
     );
   }
