@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 class Form extends React.Component {
   render() {
+  // adicionando uma prop para cada item
     const {
       cardName,
       cardDescription,
@@ -18,6 +19,7 @@ class Form extends React.Component {
       onSaveButtonClick,
     } = this.props;
     return (
+    // criando formulário com as props e adicionando atributos a cada uma, sendo o valor= a prop especifica daquele campo e onChange comum para chamar na classe principal.
       <div id="form">
         <h2 id="subTitulo">Adicionar nova carta</h2>
         <form>
@@ -30,7 +32,6 @@ class Form extends React.Component {
               name="cardName"
               value={ cardName }
               onChange={ onInputChange }
-              required
             />
           </label>
           <label htmlFor="description-input" className="forms">
@@ -41,7 +42,6 @@ class Form extends React.Component {
               name="cardDescription"
               value={ cardDescription }
               onChange={ onInputChange }
-              required
             />
           </label>
           <label htmlFor="attr1-input" className="forms">
@@ -82,7 +82,6 @@ class Form extends React.Component {
               name="cardImage"
               value={ cardImage }
               onChange={ onInputChange }
-              required
             />
           </label>
           <label htmlFor="rare-input" className="forms">
@@ -92,7 +91,6 @@ class Form extends React.Component {
               name="cardRare"
               value={ cardRare }
               onChange={ onInputChange }
-              required
             >
               <option value="normal">normal</option>
               <option value="raro">raro</option>
@@ -101,6 +99,7 @@ class Form extends React.Component {
           </label>
           <label htmlFor="trunfo-input" className="forms">
             Trunfo..................
+            {/* adicionando checkbox para marcar a carta que for um trunfo */}
             <input
               data-testid="trunfo-input"
               type="checkbox"
@@ -109,6 +108,7 @@ class Form extends React.Component {
               onChange={ onInputChange }
             />
           </label>
+          {/* adicionando um botão salvar */}
           <button
             id="button"
             data-testid="save-button"
@@ -125,6 +125,7 @@ class Form extends React.Component {
   }
 }
 
+// proptypes é a validação das props que já foram declaradas e aqui são verificadas para ter a certeza de que tudo foi digitado corretamente, é uma regra de lint.
 Form.propTypes = {
   cardName: PropTypes.string.isRequired,
   cardDescription: PropTypes.string.isRequired,

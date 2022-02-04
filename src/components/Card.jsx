@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 class Card extends React.Component {
   render() {
+    // props sendo adicionadas
     const {
       cardName,
       cardDescription,
@@ -15,6 +16,8 @@ class Card extends React.Component {
     } = this.props;
     return (
       <div>
+        {/* as props sendo declaradas no html */}
+        {/* A ideia aqui é ter o que for adicionado no form aparecer na tela, mas aqui é só colocado a ideia, será deito de fato la na classe principal atribuindo a lógica */}
         <p data-testid="name-card">{ cardName }</p>
         <img src={ cardImage } alt={ cardName } data-testid="image-card" />
         <p data-testid="description-card">{ cardDescription }</p>
@@ -31,6 +34,7 @@ class Card extends React.Component {
   }
 }
 
+// validando as pops
 Card.propTypes = {
   cardName: PropTypes.string.isRequired,
   cardDescription: PropTypes.string.isRequired,
