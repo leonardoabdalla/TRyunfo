@@ -65,7 +65,7 @@ class App extends React.Component {
     const negativo = 0;
     const somAttr = attr1 + attr2 + attr3;
 
-    if (cardName !== ''
+    const condicao = (cardName !== ''
     && cardDescription !== ''
     && cardImage !== ''
     && cardRare !== ''
@@ -75,15 +75,18 @@ class App extends React.Component {
     && attr2 <= maxAtributo
     && attr2 >= negativo
     && attr3 <= maxAtributo
-    && attr3 >= negativo) {
-      console.log('ok');
-      this.setState((prevState) => ({
-        carta: {
-          ...prevState.carta,
-          isSaveButtonDisabled: false,
-        } }));
-      console.log(carta);
-    }
+    && attr3 >= negativo);
+
+    this.setState((prevState) => ({
+      carta: {
+        ...prevState.carta,
+        isSaveButtonDisabled: !condicao,
+      } }));
+
+    // if (condicao) {
+    //   console.log('ok');
+    //   console.log(carta);
+    // }
   };
 
   render() {
