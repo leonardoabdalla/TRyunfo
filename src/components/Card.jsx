@@ -15,7 +15,7 @@ class Card extends React.Component {
       cardTrunfo,
     } = this.props;
     return (
-      <div>
+      <div className="card">
         {/* as props sendo declaradas no html */}
         {/* A ideia aqui é ter o que for adicionado no form aparecer na tela, mas aqui é só colocado a ideia, será deito de fato la na classe principal atribuindo a lógica */}
         <p data-testid="name-card">{ cardName }</p>

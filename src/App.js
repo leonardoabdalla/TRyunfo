@@ -11,11 +11,11 @@ class App extends React.Component {
       carta: {
         cardName: '',
         cardDescription: '',
-        cardAttr1: '',
-        cardAttr2: '',
-        cardAttr3: '',
+        cardAttr1: 0,
+        cardAttr2: 0,
+        cardAttr3: 0,
         cardImage: '',
-        cardRare: '',
+        cardRare: 'normal',
         cardTrunfo: false,
         // hasTrunfo,
         isSaveButtonDisabled: true,
@@ -24,19 +24,15 @@ class App extends React.Component {
     };
     // aqui é bind da função handleChange, se essa função fosse uma arrow function não seria necessário um bind, contudo poderia afetar na performace
     this.handleChange = this.handleChange.bind(this);
+    this.handleSaveButton = this.handleSaveButton.bind(this);
   }
 
-  handleSave() {
-    const { cartas } = this.state;
-    const { carta } = this.state;
-    this.setState({ cartas: [...carta, cartas] });
-  }
-
-  // função os valores do estado através de name, poderia ser ID tb ou um valor único, mas para isso é desestruturado anteriormente
+  // função os valores do estado através de name, poderia ser ID tb ou um valor único, mas para isso é desestruturado anteriormente, nessa função estou acessando name que está em estado
+  // essa função roda toda vez que um dado novo é alterado no estado
   handleChange(event) {
-    const { target } = event;
-    const { name, type } = target;
-    const value = type === 'checkbox' ? target.checked : target.value;
+    const { target } = event; // desconstruindo target
+    const { name, type } = target; // desconstruindo name e type
+    const value = type === 'checkbox' ? target.checked : target.value; // verifica se type é checkbox ou não, deverá considerar marcação checked, caso não seja considerar o valor atribuido.
     this.setState((prevState) => ({
       carta: {
         ...prevState.carta,
@@ -45,6 +41,26 @@ class App extends React.Component {
     }), () => {
       this.requisitosParaValidacao();
     });
+  }
+
+  handleSaveButton() {
+    const { cartas } = this.state;
+    const { carta } = this.state;
+    this.setState({ cartas: [carta, ...cartas],
+      carta: {
+        cardName: '',
+        cardDescription: '',
+        cardAttr1: 0,
+        cardAttr2: 0,
+        cardAttr3: 0,
+        cardImage: '',
+        cardRare: 'normal',
+        cardTrunfo: false,
+        // hasTrunfo,
+        isSaveButtonDisabled: true,
+      } });
+
+    console.log(cartas);
   }
 
   requisitosParaValidacao = () => {
@@ -82,11 +98,6 @@ class App extends React.Component {
         ...prevState.carta,
         isSaveButtonDisabled: !condicao,
       } }));
-
-    // if (condicao) {
-    //   console.log('ok');
-    //   console.log(carta);
-    // }
   };
 
   render() {
@@ -98,7 +109,7 @@ class App extends React.Component {
         <Form
           { ...carta }
           onInputChange={ this.handleChange }
-          onSave={ this.handleSave }
+          onSaveButtonClick={ this.handleSaveButton }
         />
         <Card { ...carta } />
       </div>

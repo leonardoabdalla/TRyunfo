@@ -55,3 +55,11 @@ input, select, textarea, .checks {
   margin-left: 135px;
   color: cadetblue;
 }
+.card {
+  float: right;
+  background-color: brown;
+  border-radius: 10%;
+  margin-top: 5px;
+  padding: 20px;
+
+}
