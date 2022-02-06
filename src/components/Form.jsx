@@ -17,6 +17,7 @@ class Form extends React.Component {
       isSaveButtonDisabled,
       onInputChange,
       onSaveButtonClick,
+      tryunfo,
     } = this.props;
     return (
     // criando formulário com as props e adicionando atributos a cada uma, sendo o valor= a prop especifica daquele campo e onChange comum para chamar na classe principal.
@@ -100,13 +101,15 @@ class Form extends React.Component {
           <label htmlFor="trunfo-input" className="forms">
             Trunfo..................
             {/* adicionando checkbox para marcar a carta que for um trunfo */}
-            <input
-              data-testid="trunfo-input"
-              type="checkbox"
-              name="cardTrunfo"
-              checked={ cardTrunfo }
-              onChange={ onInputChange }
-            />
+            { tryunfo ? <p>Você já tem um Super Trunfo em seu baralho</p>
+              : (
+                <input
+                  data-testid="trunfo-input"
+                  type="checkbox"
+                  name="cardTrunfo"
+                  checked={ cardTrunfo }
+                  onChange={ onInputChange }
+                />)}
           </label>
           {/* adicionando um botão salvar */}
           <button
@@ -135,6 +138,7 @@ Form.propTypes = {
   cardImage: PropTypes.string.isRequired,
   cardRare: PropTypes.string.isRequired,
   cardTrunfo: PropTypes.bool.isRequired,
+  tryunfo: PropTypes.bool.isRequired,
   // hasTrunfo: PropTypes.bool.isRequired,
   isSaveButtonDisabled: PropTypes.bool.isRequired,
   onInputChange: PropTypes.func.isRequired,

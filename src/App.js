@@ -11,9 +11,9 @@ class App extends React.Component {
       carta: {
         cardName: '',
         cardDescription: '',
-        cardAttr1: 0,
-        cardAttr2: 0,
-        cardAttr3: 0,
+        cardAttr1: '0',
+        cardAttr2: '0',
+        cardAttr3: '0',
         cardImage: '',
         cardRare: 'normal',
         cardTrunfo: false,
@@ -21,6 +21,7 @@ class App extends React.Component {
         isSaveButtonDisabled: true,
       },
       cartas: [],
+      tryunfo: false,
     };
     // aqui é bind da função handleChange, se essa função fosse uma arrow function não seria necessário um bind, contudo poderia afetar na performace
     this.handleChange = this.handleChange.bind(this);
@@ -46,21 +47,29 @@ class App extends React.Component {
   handleSaveButton() {
     const { cartas } = this.state;
     const { carta } = this.state;
+    if (carta.cardTrunfo === true) {
+      this.setState({
+        tryunfo: carta.cardTrunfo,
+      });
+    }
+    const { tryunfo } = this.state;
+    console.log(tryunfo);
+    // const tryunfo = (cardTrunfo === checked);
+    // console.log(tryunfo);
     this.setState({ cartas: [carta, ...cartas],
       carta: {
         cardName: '',
         cardDescription: '',
-        cardAttr1: 0,
-        cardAttr2: 0,
-        cardAttr3: 0,
+        cardAttr1: '0',
+        cardAttr2: '0',
+        cardAttr3: '0',
         cardImage: '',
         cardRare: 'normal',
         cardTrunfo: false,
         // hasTrunfo,
         isSaveButtonDisabled: true,
-      } });
-
-    console.log(cartas);
+      },
+    });
   }
 
   requisitosParaValidacao = () => {
@@ -101,13 +110,14 @@ class App extends React.Component {
   };
 
   render() {
-    const { carta } = this.state;
+    const { carta, tryunfo } = this.state;
 
     return (
       <div>
         <h1 id="titulo">Tryunfo</h1>
         <Form
           { ...carta }
+          tryunfo={ tryunfo }
           onInputChange={ this.handleChange }
           onSaveButtonClick={ this.handleSaveButton }
         />
