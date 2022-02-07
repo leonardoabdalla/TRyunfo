@@ -7,7 +7,7 @@ class App extends React.Component {
   // é padrão iniciar a aplicação principal onde se quer chamar o estado iniciando com constructor(), em seguida super() e então desestruturar o estado.
   constructor() {
     super();
-    this.state = {
+    this.state = { // cria o estado com chaves e valores que serão enviados para através de props para os filhos.
       carta: {
         cardName: '',
         cardDescription: '',
@@ -18,7 +18,7 @@ class App extends React.Component {
         cardRare: 'normal',
         cardTrunfo: false,
         // hasTrunfo,
-        isSaveButtonDisabled: true,
+        isSaveButtonDisabled: true, // inicia o botão salvar desabilitado, a ordem é inversa, a pergunta é: O botão salvar está desabilitado? portanto true, a mesma ordem deve ser aplicada para habilitar.
       },
       cartas: [],
       tryunfo: false,
@@ -109,7 +109,7 @@ class App extends React.Component {
   };
 
   render() {
-    const { carta, tryunfo } = this.state; // desconstrução do estado para adicionar ao return
+    const { carta, tryunfo, cartas } = this.state; // desconstrução do estado para adicionar ao return
 
     return (
       <div>
@@ -121,6 +121,11 @@ class App extends React.Component {
           onSaveButtonClick={ this.handleSaveButton }
         />
         <Card { ...carta } />
+        {/* Vai adicionado as cartas já criadas utilizando o map para passar por cada cardName */}
+        { cartas.map((cartaNova) => (
+          <div key={ cartaNova.cardName }>
+            <Card { ...cartaNova } />
+          </div>)) }
       </div>
     );
   }
