@@ -23,7 +23,7 @@ class App extends React.Component {
       cartas: [],
       tryunfo: false,
     };
-    // aqui é bind da função handleChange, se essa função fosse uma arrow function não seria necessário um bind, contudo poderia afetar na performace
+    // aqui é bind da função handleChange e da handleSaveButton, se essas funções fossem uma arrow function não seria necessário um bind, contudo poderia afetar na performace
     this.handleChange = this.handleChange.bind(this);
     this.handleSaveButton = this.handleSaveButton.bind(this);
   }
@@ -47,17 +47,16 @@ class App extends React.Component {
   handleSaveButton() {
     const { cartas } = this.state;
     const { carta } = this.state;
+    // e realizada a condicional do tryunfo, caso cardTrunfo seja checked será igual a true e o valor do tryunfo será atualizado no estado e seguirá para a lógica no forms excluindo a o campo de marcação.
     if (carta.cardTrunfo === true) {
       this.setState({
         tryunfo: carta.cardTrunfo,
       });
     }
-    const { tryunfo } = this.state;
+    const { tryunfo } = this.state; // desconstruido tryunfo apenas para aplicar o console.log e poder ser visto a operação.
     console.log(tryunfo);
-    // const tryunfo = (cardTrunfo === checked);
-    // console.log(tryunfo);
-    this.setState({ cartas: [carta, ...cartas],
-      carta: {
+    this.setState({ cartas: [carta, ...cartas], // o estado é atualizado e adicionado ao array cartas, carta e o que já estava no array cartas antes.
+      carta: { // novos valores zerados atribuidos a carta quando atualizado estado após o botão salvar ser acionado
         cardName: '',
         cardDescription: '',
         cardAttr1: '0',
@@ -72,7 +71,7 @@ class App extends React.Component {
     });
   }
 
-  requisitosParaValidacao = () => {
+  requisitosParaValidacao = () => { // essa função realiza a validação dos campo conforme pré-estabelecido.
     const { carta } = this.state;
     const { cardAttr1,
       cardAttr2,
@@ -102,7 +101,7 @@ class App extends React.Component {
     && attr3 <= maxAtributo
     && attr3 >= negativo);
 
-    this.setState((prevState) => ({
+    this.setState((prevState) => ({ // o estado é atualizado aplicando a lógica de acionamento do botão salvar caso a condicinal seja verdadeira.
       carta: {
         ...prevState.carta,
         isSaveButtonDisabled: !condicao,
@@ -110,7 +109,7 @@ class App extends React.Component {
   };
 
   render() {
-    const { carta, tryunfo } = this.state;
+    const { carta, tryunfo } = this.state; // desconstrução do estado para adicionar ao return
 
     return (
       <div>

@@ -100,9 +100,9 @@ class Form extends React.Component {
           </label>
           <label htmlFor="trunfo-input" className="forms">
             Trunfo..................
-            {/* adicionando checkbox para marcar a carta que for um trunfo */}
             { tryunfo ? <p>Você já tem um Super Trunfo em seu baralho</p>
               : (
+                // se la no pai tryundo for true, ou seja, já estiver sido marcado, então será exibido na tela essa frase, caso não tenha sio marcado segue o input
                 <input
                   data-testid="trunfo-input"
                   type="checkbox"
