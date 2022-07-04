@@ -19,7 +19,12 @@ class Card extends React.Component {
         {/* as props sendo declaradas no html */}
         {/* A ideia aqui é ter o que for adicionado no form aparecer na tela, mas aqui é só colocado a ideia, será deito de fato la na classe principal atribuindo a lógica */}
         <p data-testid="name-card">{ cardName }</p>
-        <img src={ cardImage } alt={ cardName } data-testid="image-card" />
+        <img
+          src={ cardImage }
+          alt={ cardName }
+          data-testid="image-card"
+          className="img"
+        />
         <p data-testid="description-card">{ cardDescription }</p>
         <p data-testid="attr1-card">{ cardAttr1 }</p>
         <p data-testid="attr2-card">{ cardAttr2 }</p>
